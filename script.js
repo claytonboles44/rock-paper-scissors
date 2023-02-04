@@ -7,18 +7,22 @@ function getComputerChoice() {
 }
 
 function playRound() {
-  let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
-  let computerSelection = getComputerChoice();
-
-  if (
-    playerSelection != "rock" &&
-    playerSelection != "paper" &&
-    playerSelection != "scissors"
-  )
-    return alert("Invalid entry, please refresh.");
+  let playerSelection = prompt("Rock, Paper, or Scissors?");
+  if (playerSelection == null) alert("Invalid entry, please refresh.");
   else {
-    console.log(computerSelection);
-    playLogic(playerSelection, computerSelection);
+    playerSelection = playerSelection.toLowerCase();
+    let computerSelection = getComputerChoice();
+
+    if (
+      playerSelection != "rock" &&
+      playerSelection != "paper" &&
+      playerSelection != "scissors"
+    )
+      alert("Invalid entry, please refresh.");
+    else {
+      console.log(computerSelection);
+      playLogic(playerSelection, computerSelection);
+    }
   }
 }
 
